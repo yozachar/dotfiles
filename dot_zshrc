@@ -1,0 +1,44 @@
+# If not running interactively, do nothing
+[[ $- != *i* ]] && return
+
+# Zsh
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
+setopt append_history # append rather then overwrite
+setopt inc_append_history # add history immediately after typing a command
+export EDITOR=micro
+
+# aliases
+alias ls='LC_ALL=C ls -h --group-directories-first --color=auto'
+alias which='whence -p'
+
+# keybindings
+source ~/.zsh_keybindings
+
+# Download Znap, if it's not there yet.
+[[ -f ~/.znap/src/znap.zsh ]] ||
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/.znap/src
+# Set znap repo directory
+zstyle ':znap:*' repos-dir ~/.znap/repos
+
+# source znap
+source ~/.znap/src/znap.zsh
+
+# tools
+znap install asdf-vm/asdf
+znap install andreafrancia/trash-cli
+znap install refi64/stylepak
+
+# zsh-snap plugins
+znap source asdf-vm/asdf
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
+
+# asdf
+asdf reshim
+
+# zsh-snap prompt
+echo -e "\n$(neofetch)"
+znap eval starship 'starship init zsh --print-full-init'
+znap prompt
