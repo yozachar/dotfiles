@@ -8,6 +8,7 @@ SAVEHIST=$HISTSIZE
 setopt append_history # append rather then overwrite
 setopt inc_append_history # add history immediately after typing a command
 export EDITOR=micro
+export GCM_CREDENTIAL_STORE=secretservice
 
 # aliases
 alias ls='LC_ALL=C ls -h --group-directories-first --color=auto'
