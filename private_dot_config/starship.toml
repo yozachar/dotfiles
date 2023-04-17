@@ -1,0 +1,15 @@
+# "$schema" = 'https://starship.rs/config-schema.json'
+
+# format = "$time$all$character"
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[character]
+success_symbol = "[»](bold green)"
+error_symbol = "[»](bold red)"
+
+# [time]
+# disabled = false
+# format = '[\[ $time \]]($style) '
+# use_12hr = true

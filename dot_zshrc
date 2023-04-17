@@ -27,17 +27,18 @@ zstyle ':znap:*' repos-dir ~/.znap/repos
 source ~/.znap/src/znap.zsh
 
 # tools
-znap install asdf-vm/asdf
-znap install andreafrancia/trash-cli
-znap install refi64/stylepak
+#znap install asdf-vm/asdf
+#znap install andreafrancia/trash-cli
+#znap install refi64/stylepak
 
 # zsh-snap plugins
-znap source asdf-vm/asdf
+znap source asdf-vm/asdf asdf.sh
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
 # asdf
-asdf reshim
+#asdf reshim
+#znap eval asdf-community/asdf-direnv "asdf exec $( asdf which direnv ) hook zsh"
 
 # zsh-snap prompt
 echo -e "\n$(neofetch)"
