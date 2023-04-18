@@ -2,6 +2,8 @@
 	repo = /home/jcube/.znap/repos/zsh-autosuggestions
 	repo = /home/jcube/.znap/repos/zsh-syntax-highlighting
 	repo = /home/jcube/.znap/repos/stylepak
+	repo = /home/jcube/.znap/repos/asdf
+	repo = /home/jcube/.znap/repos/asdf-direnv
 [core]
 	editor = micro
 [credential]
