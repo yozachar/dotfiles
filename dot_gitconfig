@@ -1,5 +1,4 @@
 [maintenance]
-	repo = /home/jcube/.znap/repos/trash-cli
 	repo = /home/jcube/.znap/repos/zsh-autosuggestions
 	repo = /home/jcube/.znap/repos/zsh-syntax-highlighting
 	repo = /home/jcube/.znap/repos/stylepak
