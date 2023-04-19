@@ -41,6 +41,7 @@ text/x-java=org.gnome.TextEditor.desktop;
 text/x-python3=org.gnome.TextEditor.desktop;
 x-scheme-handler/http=org.gnome.Epiphany.desktop;
 x-scheme-handler/https=org.gnome.Epiphany.desktop;
+application/pdf=org.gnome.Evince.desktop;
 
 [Added Associations]
 
