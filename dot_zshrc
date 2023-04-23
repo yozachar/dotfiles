@@ -1,45 +1,44 @@
 # If not running interactively, do nothing
 [[ $- != *i* ]] && return
 
-# Zsh
+# zsh
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
-setopt append_history # append rather then overwrite
-setopt inc_append_history # add history immediately after typing a command
+setopt APPEND_HISTORY # append rather then overwrite
+setopt INC_APPEND_HISTORY # add history immediately after typing a command
+setopt INTERACTIVE_COMMENTS # enables interactive comments
+
+# env
 export EDITOR=micro
 export GCM_CREDENTIAL_STORE=secretservice
 
 # aliases
-alias ls='LC_ALL=C ls -h --group-directories-first --color=auto'
+alias ls='exa -h --group-directories-first'
+alias ols='ls --octal-permissions'
 alias which='whence -p'
 
 # keybindings
 source ~/.zsh_keybindings
 
-# Download Znap, if it's not there yet.
+# download znap, if it's not yet
 [[ -f ~/.znap/src/znap.zsh ]] ||
     git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/.znap/src
-# Set znap repo directory
+# set znap repo directory
 zstyle ':znap:*' repos-dir ~/.znap/repos
 
 # source znap
 source ~/.znap/src/znap.zsh
 
-# tools
-#znap install asdf-vm/asdf
-#znap install refi64/stylepak
-
-# zsh-snap plugins
+# znap plugins
 znap source asdf-vm/asdf asdf.sh
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
-# asdf
+# znap eval
 znap eval asdf-community/asdf-direnv "asdf exec $( asdf which direnv ) hook zsh"
-#source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-
-# zsh-snap prompt
-echo -e "\n$(neofetch)"
 znap eval starship 'starship init zsh --print-full-init'
+
+echo -e "\n$(neofetch)"
+# znap prompt
 znap prompt
