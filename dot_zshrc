@@ -16,6 +16,7 @@ export GCM_CREDENTIAL_STORE=secretservice
 # aliases
 alias ls='exa -h --group-directories-first'
 alias ols='ls --octal-permissions'
+alias cat='bat -p'
 alias which='whence -p'
 
 # keybindings
