@@ -1,4 +1,6 @@
 [Default Applications]
+application/pdf=org.gnome.Evince.desktop;
+application/json=org.gnome.TextEditor.desktop;
 application/vnd.oasis.opendocument.graphics=org.onlyoffice.desktopeditors.desktop;
 application/x-perl=org.gnome.TextEditor.desktop;
 application/x-php=org.gnome.TextEditor.desktop;
@@ -6,6 +8,7 @@ application/x-shellscript=org.gnome.TextEditor.desktop;
 application/x-zerosize=org.gnome.TextEditor.desktop;
 application/xhtml+xml=org.gnome.Epiphany.desktop;
 application/xml=org.gnome.TextEditor.desktop;
+audio/aac=org.videolan.VLC.desktop;
 image/bmp=org.gnome.eog.desktop;
 image/gif=org.gnome.eog.desktop;
 image/jpeg=org.gnome.eog.desktop;
@@ -42,6 +45,5 @@ text/x-python=org.gnome.TextEditor.desktop
 text/x-python3=org.gnome.TextEditor.desktop;
 x-scheme-handler/http=org.gnome.Epiphany.desktop;
 x-scheme-handler/https=org.gnome.Epiphany.desktop;
-application/pdf=org.gnome.Evince.desktop;
 
 [Added Associations]

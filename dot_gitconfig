@@ -6,7 +6,20 @@
 	repo = /home/jcube/.znap/repos/asdf-direnv
 [core]
 	editor = micro
+	pager = delta
 [credential]
+	helper =
 	helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+	side-by-side = true
+	line-numbers = true
+    navigate = true
+    light = false

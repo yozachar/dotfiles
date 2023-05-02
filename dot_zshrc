@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 # zsh
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000
 SAVEHIST=$HISTSIZE
 setopt APPEND_HISTORY # append rather then overwrite
@@ -17,19 +17,39 @@ export GCM_CREDENTIAL_STORE=secretservice
 alias ls='exa -h --group-directories-first'
 alias ols='ls --octal-permissions'
 alias cat='bat -p'
+alias man='tldr'
 alias which='whence -p'
 
+psl () {
+	code=047
+	print -P -- "%F{$code}Pods:%f"
+	podman pod ls
+	print -P -- "\n%F{$code}Containers:%f"
+	podman container ls -a
+	print -P -- "\n%F{$code}Images:%f"
+	podman image ls
+	print -P -- "\n%F{$code}Volumes:%f"
+		podman volume ls
+	print -P -- "\n%F{$code}Networks:%f"
+	podman network ls
+	print -P -- "\n%F{$code}Secrets:%f"
+	podman secret ls
+	printf ""
+}
+
+
+
 # keybindings
-source ~/.zsh_keybindings
+source $HOME/.zsh_keybindings
 
 # download znap, if it's not yet
-[[ -f ~/.znap/src/znap.zsh ]] ||
-    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/.znap/src
+[[ -f $HOME/.znap/src/znap.zsh ]] ||
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git $HOME/.znap/src
 # set znap repo directory
-zstyle ':znap:*' repos-dir ~/.znap/repos
+zstyle ':znap:*' repos-dir $HOME/.znap/repos
 
 # source znap
-source ~/.znap/src/znap.zsh
+source $HOME/.znap/src/znap.zsh
 
 # znap plugins
 znap source asdf-vm/asdf asdf.sh
@@ -39,6 +59,9 @@ znap source zsh-users/zsh-syntax-highlighting
 # znap eval
 znap eval asdf-community/asdf-direnv "asdf exec $( asdf which direnv ) hook zsh"
 znap eval starship 'starship init zsh --print-full-init'
+
+# broot
+source $HOME/.config/broot/launcher/bash/br
 
 echo -e "\n$(neofetch)"
 # znap prompt
