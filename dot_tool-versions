@@ -1,4 +1,4 @@
-python system
+python 3.11.3
 pipx 1.2.0
 direnv 2.32.2
 bin 0.16.2
