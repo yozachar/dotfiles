@@ -12,6 +12,7 @@ setopt INTERACTIVE_COMMENTS # enables interactive comments
 # env
 export EDITOR=micro
 export GCM_CREDENTIAL_STORE=secretservice
+export CHROOT="$HOME/.chroot"
 
 # aliases
 alias ls='exa -h --group-directories-first'
@@ -19,25 +20,27 @@ alias ols='ls --octal-permissions'
 alias cat='bat -p'
 alias man='tldr'
 alias which='whence -p'
+#alias docker='podman'
 
+# functions
 psl () {
 	code=047
-	print -P -- "%F{$code}Pods:%f"
+	print -P -- "\n%F{$code}Processes:%f"
+	podman ps -a
+	print -P -- "\n%F{$code}Pods:%f"
 	podman pod ls
 	print -P -- "\n%F{$code}Containers:%f"
 	podman container ls -a
 	print -P -- "\n%F{$code}Images:%f"
 	podman image ls
 	print -P -- "\n%F{$code}Volumes:%f"
-		podman volume ls
+	podman volume ls
 	print -P -- "\n%F{$code}Networks:%f"
 	podman network ls
 	print -P -- "\n%F{$code}Secrets:%f"
 	podman secret ls
 	printf ""
 }
-
-
 
 # keybindings
 source $HOME/.zsh_keybindings
@@ -60,9 +63,5 @@ znap source zsh-users/zsh-syntax-highlighting
 znap eval asdf-community/asdf-direnv "asdf exec $( asdf which direnv ) hook zsh"
 znap eval starship 'starship init zsh --print-full-init'
 
-# broot
-source $HOME/.config/broot/launcher/bash/br
-
-echo -e "\n$(neofetch)"
-# znap prompt
+#echo -e "\n$(neofetch)"
 znap prompt

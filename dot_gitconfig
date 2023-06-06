@@ -1,17 +1,21 @@
 [maintenance]
-	repo = /home/jcube/.znap/repos/zsh-autosuggestions
-	repo = /home/jcube/.znap/repos/zsh-syntax-highlighting
-	repo = /home/jcube/.znap/repos/stylepak
-	repo = /home/jcube/.znap/repos/asdf
-	repo = /home/jcube/.znap/repos/asdf-direnv
+    repo = /home/jcube/.znap/repos/zsh-autosuggestions
+    repo = /home/jcube/.znap/repos/zsh-syntax-highlighting
+    repo = /home/jcube/.znap/repos/stylepak
+    repo = /home/jcube/.znap/repos/asdf
+    repo = /home/jcube/.znap/repos/asdf-direnv
+    repo = /home/jcube/.znap/repos/firefox-gnome-theme
+    repo = /home/jcube/.znap/repos/grub2-themes
+    repo = /home/jcube/.znap/repos/Gruvbox-GTK-Theme
+    repo = /home/jcube/.znap/repos/Tela-circle-icon-theme
 [core]
-	editor = micro
-	pager = delta
+    editor = micro
+    pager = delta
 [credential]
-	helper =
-	helper = /usr/bin/git-credential-manager
+    helper =
+    helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+    useHttpPath = true
 [merge]
     conflictstyle = diff3
 [diff]
@@ -19,7 +23,11 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-	side-by-side = true
-	line-numbers = true
+    side-by-side = true
+    line-numbers = true
     navigate = true
     light = false
+[man]
+    viewer = tldr
+[man "tldr"]
+    cmd = tldr

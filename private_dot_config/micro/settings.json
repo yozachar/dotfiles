@@ -1,3 +1,5 @@
 {
-    "wordwrap": true
+    "softwrap": true,
+    "wordwrap": true,
+    "tabstospaces": true,
 }
