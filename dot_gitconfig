@@ -1,13 +1,13 @@
 [maintenance]
-    repo = /home/jcube/.znap/repos/zsh-autosuggestions
-    repo = /home/jcube/.znap/repos/zsh-syntax-highlighting
-    repo = /home/jcube/.znap/repos/stylepak
-    repo = /home/jcube/.znap/repos/asdf
-    repo = /home/jcube/.znap/repos/asdf-direnv
-    repo = /home/jcube/.znap/repos/firefox-gnome-theme
-    repo = /home/jcube/.znap/repos/grub2-themes
-    repo = /home/jcube/.znap/repos/Gruvbox-GTK-Theme
-    repo = /home/jcube/.znap/repos/Tela-circle-icon-theme
+    repo = $HOME/.znap/repos/asdf
+    repo = $HOME/.znap/repos/asdf-direnv
+    repo = $HOME/.znap/repos/firefox-gnome-theme
+    repo = $HOME/.znap/repos/grub2-themes
+    repo = $HOME/.znap/repos/Gruvbox-GTK-Theme
+    repo = $HOME/.znap/repos/stylepak
+    repo = $HOME/.znap/repos/Tela-circle-icon-theme
+    repo = $HOME/.znap/repos/zsh-autosuggestions
+    repo = $HOME/.znap/repos/zsh-syntax-highlighting
 [core]
     editor = micro
     pager = delta
