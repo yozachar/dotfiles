@@ -1,4 +1,6 @@
 {
+    "colorscheme": "gruvbox",
+    "eofnewline": false,
     "softwrap": true,
     "tabstospaces": true,
     "wordwrap": true

@@ -1,13 +1,3 @@
-[maintenance]
-    repo = $HOME/.znap/repos/asdf
-    repo = $HOME/.znap/repos/asdf-direnv
-    repo = $HOME/.znap/repos/firefox-gnome-theme
-    repo = $HOME/.znap/repos/grub2-themes
-    repo = $HOME/.znap/repos/Gruvbox-GTK-Theme
-    repo = $HOME/.znap/repos/stylepak
-    repo = $HOME/.znap/repos/Tela-circle-icon-theme
-    repo = $HOME/.znap/repos/zsh-autosuggestions
-    repo = $HOME/.znap/repos/zsh-syntax-highlighting
 [core]
     editor = micro
     pager = delta
@@ -16,18 +6,32 @@
     helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
     useHttpPath = true
-[merge]
-    conflictstyle = diff3
-[diff]
-    colorMoved = default
-[interactive]
-    diffFilter = delta --color-only
 [delta]
     side-by-side = true
     line-numbers = true
     navigate = true
     light = false
+[diff]
+    colorMoved = default
+[interactive]
+    diffFilter = delta --color-only
+[maintenance]
+	repo = /home/jcube/.znap/repos/asdf-vm/asdf
+	repo = /home/jcube/.znap/repos/asdf-community/asdf-direnv
+	repo = /home/jcube/.znap/repos/zsh-users/zsh-autosuggestions
+	repo = /home/jcube/.znap/repos/zsh-users/zsh-syntax-highlighting
+	repo = /home/jcube/.znap/repos/refi64/stylepak
+	# oher
+	repo = /home/jcube/.znap/repos/rafaelmardojai/firefox-gnome-theme
+	repo = /home/jcube/.znap/repos/vinceliuice/Tela-circle-icon-theme
+	repo = /home/jcube/.znap/repos/vinceliuice/grub2-themes
 [man]
     viewer = tldr
 [man "tldr"]
     cmd = tldr
+[merge]
+    conflictstyle = diff3
+[credential "https://gitea.com"]
+	provider = generic
+[user]
+	name = Jovial Joe Jayarson

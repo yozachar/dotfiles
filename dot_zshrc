@@ -1,10 +1,20 @@
 # If not running interactively, do nothing
 [[ $- != *i* ]] && return
 
+# append path
+append_path () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            export PATH="${PATH:+$PATH:}$1"
+    esac
+}
+
 # zsh
-HISTFILE=$HOME/.zsh_history
+HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
-SAVEHIST=$HISTSIZE
+SAVEHIST="$HISTSIZE"
 setopt APPEND_HISTORY # append rather then overwrite
 setopt INC_APPEND_HISTORY # add history immediately after typing a command
 setopt INTERACTIVE_COMMENTS # enables interactive comments
@@ -13,18 +23,23 @@ setopt INTERACTIVE_COMMENTS # enables interactive comments
 export EDITOR=micro
 export GCM_CREDENTIAL_STORE=secretservice
 export CHROOT="$HOME/.chroot"
+export JAVA_HOME="$HOME/.asdf/installs/java/openjdk-17"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export RYE_NO_AUTO_INSTALL=1
+export MEILI_NO_ANALYTICS=true
 
 # aliases
-alias ls='exa -h --group-directories-first'
+alias ls='exa -g -h --group-directories-first'
 alias ols='ls --octal-permissions'
 alias cat='bat -p'
-alias man='tldr'
+# alias man='tldr'
 alias which='whence -p'
+alias rg='rg --engine=auto'
 #alias docker='podman'
 
 # functions
 psl () {
-	code=047
+	local code=047
 	print -P -- "\n%F{$code}Processes:%f"
 	podman ps -a
 	print -P -- "\n%F{$code}Pods:%f"
@@ -43,25 +58,38 @@ psl () {
 }
 
 # keybindings
-source $HOME/.zsh_keybindings
+source "$HOME/.zsh_keybindings"
 
 # download znap, if it's not yet
-[[ -f $HOME/.znap/src/znap.zsh ]] ||
-    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git $HOME/.znap/src
+[[ -f "$HOME/.znap/src/znap.zsh" ]] ||
+    git clone --depth 1 -- 'https://github.com/marlonrichert/zsh-snap.git' "$HOME/.znap/src"
 # set znap repo directory
-zstyle ':znap:*' repos-dir $HOME/.znap/repos
+zstyle ':znap:*' repos-dir "$HOME/.znap/repos"
 
 # source znap
-source $HOME/.znap/src/znap.zsh
+source "$HOME/.znap/src/znap.zsh"
 
 # znap plugins
 znap source asdf-vm/asdf asdf.sh
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
+# bin
+# znap install refi64/stylepak
+
+# completions
+fpath=(${ASDF_DIR}/completions $fpath)
+znap fpath _rustup  'rustup  completions zsh'
+znap fpath _cargo 'rustup  completions zsh cargo'
+
+# paths
+append_path "$PNPM_HOME"
+append_path "$HOME/.local/bin"
+
 # znap eval
 znap eval asdf-community/asdf-direnv "asdf exec $( asdf which direnv ) hook zsh"
+znap eval pipx-completions 'register-python-argcomplete pipx'
 znap eval starship 'starship init zsh --print-full-init'
 
-#echo -e "\n$(neofetch)"
+fastfetch
 znap prompt
