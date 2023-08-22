@@ -73,6 +73,10 @@ x-scheme-handler/http=org.gnome.Epiphany.desktop
 x-scheme-handler/https=org.gnome.Epiphany.desktop
 
 [Added Associations]
+application/xhtml+xml=microsoft-edge-beta.desktop;org.gnome.Epiphany.desktop;
+text/html=microsoft-edge-beta.desktop;org.gnome.Epiphany.desktop;
+x-scheme-handler/http=microsoft-edge-beta.desktop;org.gnome.Epiphany.desktop;
+x-scheme-handler/https=microsoft-edge-beta.desktop;org.gnome.Epiphany.desktop;
 
 [Removed Associations]
 inode/directory=code.desktop
