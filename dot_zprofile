@@ -1,0 +1,21 @@
+#!/usr/bin/zsh
+
+# Import the default profile
+if [ -f "/etc/profile" ]; then
+    # shellcheck disable=SC1091
+  . "/etc/profile"
+fi
+
+
+# Append "$1" to $PATH when not already in.
+append_path () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            export PATH="${PATH:+$PATH:}$1"
+    esac
+}
+
+eval "$(/usr/bin/rtx activate zsh)"
+append_path "$HOME/.local/bin"

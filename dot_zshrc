@@ -2,28 +2,29 @@
 [[ $- != *i* ]] && return
 
 # append path
-append_path () {
-    case ":$PATH:" in
-        *:"$1":*)
-            ;;
-        *)
-            export PATH="${PATH:+$PATH:}$1"
-    esac
+append_path() {
+	case ":$PATH:" in
+	*:"$1":*) ;;
+	*)
+		export PATH="${PATH:+$PATH:}$1"
+		;;
+	esac
 }
 
 # zsh
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
 SAVEHIST="$HISTSIZE"
-setopt APPEND_HISTORY # append rather then overwrite
-setopt INC_APPEND_HISTORY # add history immediately after typing a command
+setopt APPEND_HISTORY       # append rather then overwrite
+setopt INC_APPEND_HISTORY   # add history immediately after typing a command
 setopt INTERACTIVE_COMMENTS # enables interactive comments
 
 # env
 export EDITOR=micro
 export GCM_CREDENTIAL_STORE=secretservice
 export CHROOT="$HOME/.chroot"
-export JAVA_HOME="$HOME/.asdf/installs/java/openjdk-17"
+# auto set by rtx
+# export JAVA_HOME="$HOME/.local/share/rtx/installs/java/openjdk-17"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export RYE_NO_AUTO_INSTALL=1
 export MEILI_NO_ANALYTICS=true
@@ -38,7 +39,7 @@ alias rg='rg --engine=auto'
 #alias docker='podman'
 
 # functions
-psl () {
+psl() {
 	local code=047
 	print -P -- "\n%F{$code}Processes:%f"
 	podman ps -a
@@ -62,7 +63,7 @@ source "$HOME/.zsh_keybindings"
 
 # download znap, if it's not yet
 [[ -f "$HOME/.znap/src/znap.zsh" ]] ||
-    git clone --depth 1 -- 'https://github.com/marlonrichert/zsh-snap.git' "$HOME/.znap/src"
+	git clone --depth 1 -- 'https://github.com/marlonrichert/zsh-snap.git' "$HOME/.znap/src"
 # set znap repo directory
 zstyle ':znap:*' repos-dir "$HOME/.znap/repos"
 
@@ -70,26 +71,22 @@ zstyle ':znap:*' repos-dir "$HOME/.znap/repos"
 source "$HOME/.znap/src/znap.zsh"
 
 # znap plugins
-znap source asdf-vm/asdf asdf.sh
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
-# bin
-# znap install refi64/stylepak
-
-# completions
-fpath=(${ASDF_DIR}/completions $fpath)
-znap fpath _rustup  'rustup  completions zsh'
-znap fpath _cargo 'rustup  completions zsh cargo'
-
 # paths
-append_path "$PNPM_HOME"
+# append_path "$PNPM_HOME"
 append_path "$HOME/.local/bin"
 
-# znap eval
-znap eval asdf-community/asdf-direnv "asdf exec $( asdf which direnv ) hook zsh"
+# eval
 znap eval pipx-completions 'register-python-argcomplete pipx'
-znap eval starship 'starship init zsh --print-full-init'
+# znap eval rtx 'rtx activate zsh'
 
+# completions
+#znap fpath _rustup 'rustup completions zsh'
+#znap fpath _cargo 'rustup completions zsh cargo'
+
+# end
+znap eval starship 'starship init zsh --print-full-init'
 fastfetch
 znap prompt

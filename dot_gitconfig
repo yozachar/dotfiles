@@ -6,6 +6,8 @@
     helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
     useHttpPath = true
+[credential "https://gitea.com"]
+	provider = generic
 [delta]
     side-by-side = true
     line-numbers = true
@@ -18,22 +20,15 @@
 [interactive]
     diffFilter = delta --color-only
 [maintenance]
-	repo = /home/jcube/.znap/repos/asdf-vm/asdf
-	repo = /home/jcube/.znap/repos/asdf-community/asdf-direnv
 	repo = /home/jcube/.znap/repos/zsh-users/zsh-autosuggestions
 	repo = /home/jcube/.znap/repos/zsh-users/zsh-syntax-highlighting
-	repo = /home/jcube/.znap/repos/refi64/stylepak
-	# oher
+	# theme
 	repo = /home/jcube/.znap/repos/rafaelmardojai/firefox-gnome-theme
-	repo = /home/jcube/.znap/repos/vinceliuice/Tela-circle-icon-theme
-	repo = /home/jcube/.znap/repos/vinceliuice/grub2-themes
 [man]
     viewer = tldr
 [man "tldr"]
     cmd = tldr
 [merge]
     conflictstyle = diff3
-[credential "https://gitea.com"]
-	provider = generic
 [user]
 	name = Jovial Joe Jayarson
