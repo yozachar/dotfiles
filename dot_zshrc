@@ -76,7 +76,7 @@ znap source zsh-users/zsh-syntax-highlighting
 
 # paths
 # append_path "$PNPM_HOME"
-append_path "$HOME/.local/bin"
+# append_path "$HOME/.local/bin"
 
 # eval
 znap eval pipx-completions 'register-python-argcomplete pipx'
