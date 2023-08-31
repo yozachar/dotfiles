@@ -1,7 +1,9 @@
 [Default Applications]
 application/json=org.gnome.TextEditor.desktop
 application/pdf=org.gnome.Evince.desktop
-application/vnd.oasis.opendocument.graphics=org.onlyoffice.desktopeditors.desktop
+application/vnd.oasis.opendocument.graphics=libreoffice7.6-impress.desktop
+application/vnd.oasis.opendocument.text=libreoffice7.6-writer.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice7.6-impress.desktop
 application/x-perl=org.gnome.TextEditor.desktop
 application/x-php=org.gnome.TextEditor.desktop
 application/x-shellscript=org.gnome.TextEditor.desktop

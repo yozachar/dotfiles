@@ -75,16 +75,19 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
 # paths
-# append_path "$PNPM_HOME"
-# append_path "$HOME/.local/bin"
+#append_path "$PNPM_HOME"
+#
+# done in ~/.zprofile
+#append_path "$HOME/.local/bin"
 
 # eval
 znap eval pipx-completions 'register-python-argcomplete pipx'
-# znap eval rtx 'rtx activate zsh'
+znap eval rtx 'rtx activate zsh'
 
 # completions
 #znap fpath _rustup 'rustup completions zsh'
 #znap fpath _cargo 'rustup completions zsh cargo'
+znap fpath _rtx 'rtx completion zsh'
 
 # end
 znap eval starship 'starship init zsh --print-full-init'
