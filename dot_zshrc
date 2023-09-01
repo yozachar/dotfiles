@@ -11,6 +11,15 @@ append_path() {
 	esac
 }
 
+# remove path
+remove_path() {
+    TEMP=":$PATH:"
+    TEMP="${TEMP/:$1:/:}"
+    TEMP="${TEMP%:}"
+    TEMP="${TEMP#:}"
+    export PATH="$TEMP"
+}
+
 # zsh
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
@@ -40,7 +49,7 @@ alias rg='rg --engine=auto'
 
 # functions
 psl() {
-	local code=047
+	code=047
 	print -P -- "\n%F{$code}Processes:%f"
 	podman ps -a
 	print -P -- "\n%F{$code}Pods:%f"
@@ -76,9 +85,9 @@ znap source zsh-users/zsh-syntax-highlighting
 
 # paths
 #append_path "$PNPM_HOME"
-#
 # done in ~/.zprofile
 #append_path "$HOME/.local/bin"
+remove_path "$HOME/.local/share/rtx/shims"
 
 # eval
 znap eval pipx-completions 'register-python-argcomplete pipx'
@@ -88,6 +97,9 @@ znap eval rtx 'rtx activate zsh'
 #znap fpath _rustup 'rustup completions zsh'
 #znap fpath _cargo 'rustup completions zsh cargo'
 znap fpath _rtx 'rtx completion zsh'
+
+unset -f append_path
+unset -f remove_path
 
 # end
 znap eval starship 'starship init zsh --print-full-init'

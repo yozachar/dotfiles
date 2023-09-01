@@ -18,7 +18,8 @@ append_path() {
 
 # user-paths
 append_path "$HOME/.local/bin"
+append_path "$HOME/.local/share/rtx/shims"
+
 eval "$(/usr/bin/rtx activate zsh)"
-#append_path "$HOME/.local/share/rtx/shims"
 
 unset -f append_path
