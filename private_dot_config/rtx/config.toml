@@ -1,20 +1,6 @@
 [tools]
-node = "lts"
-python = "system"
-go = "latest"
-java = "openjdk-17"
-nim = "latest"
-rust = "latest"
 bin = "latest"
 pipx = "latest"
-zig = "latest"
 shfmt = "latest"
-ninja = "latest"
 neovim = "latest"
-kotlin = "latest"
-cmake = "latest"
-meson = "latest"
 shellcheck = "latest"
-
-[settings]
-legacy_version_file = false

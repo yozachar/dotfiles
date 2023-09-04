@@ -1,0 +1,44 @@
+# if not running interactively, do nothing
+[[ $- != *i* ]] && return
+
+# zsh
+HISTFILE="$HOME/.zsh/.zsh_history"
+HISTSIZE=100000
+SAVEHIST="$HISTSIZE"
+setopt APPEND_HISTORY       # append rather then overwrite
+setopt INC_APPEND_HISTORY   # add history immediately after typing a command
+setopt INTERACTIVE_COMMENTS # enables interactive comments
+
+# zsh keybindings
+. "$HOME/.zsh/.key_bindings.zsh"
+
+# >>> Znap >>>
+ZSH_SNAP="$HOME/.zsh/.znap"
+# download znap, optionally
+[[ -f "$ZSH_SNAP/src/znap.zsh" ]] ||
+	git clone --depth 1 -- 'https://github.com/marlonrichert/zsh-snap.git' "$ZSH_SNAP/src"
+# set znap repo directory
+zstyle ':znap:*' repos-dir "$ZSH_SNAP/repos"
+# source znap
+. "$ZSH_SNAP/src/znap.zsh"
+# znap plugins
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
+# znap eval
+znap eval pipx-completions 'register-python-argcomplete pipx'
+znap eval rtx 'rtx activate zsh'
+# znap completions
+#znap fpath _rustup 'rustup completions zsh'
+#znap fpath _cargo 'rustup completions zsh cargo'
+znap fpath _rtx 'rtx completion zsh'
+# <<< Znap <<<
+
+# aliases and functions
+. "$HOME/.zsh/.anf.zsh"
+
+# environment variables and paths
+. "$HOME/.zsh/.env.sh"
+
+znap eval starship 'starship init zsh --print-full-init'
+fastfetch
+znap prompt

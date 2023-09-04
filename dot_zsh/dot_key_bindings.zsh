@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # : ' # <!-- Uncomment to Comment -->
 
 # >>> Bindkey >>>
