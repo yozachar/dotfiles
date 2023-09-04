@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/bash
 
 # Environment Variables & Paths
 
@@ -24,27 +24,27 @@ export RYE_NO_AUTO_INSTALL=1
 
 # append path
 append_path() {
-	if [ -z "$1" ]; then
-		return
-	fi
-	case ":$PATH:" in
-	*:"$1":*) ;;
-	*)
-		export PATH="${PATH:+$PATH:}$1"
-		;;
-	esac
+    if [ -z "$1" ]; then
+        return
+    fi
+    case ":$PATH:" in
+    *:"$1":*) ;;
+    *)
+        export PATH="${PATH:+$PATH:}$1"
+        ;;
+    esac
 }
 
 # remove path
 remove_path() {
-	if [ -z "$1" ]; then
-		return
-	fi
-	TEMP=":$PATH:"
-	TEMP="${TEMP/:$1:/:}"
-	TEMP="${TEMP%:}"
-	TEMP="${TEMP#:}"
-	export PATH="$TEMP"
+    if [ -z "$1" ]; then
+        return
+    fi
+    TEMP=":$PATH:"
+    TEMP="${TEMP/:$1:/:}"
+    TEMP="${TEMP%:}"
+    TEMP="${TEMP#:}"
+    export PATH="$TEMP"
 }
 
 #append_path "$PNPM_HOME"

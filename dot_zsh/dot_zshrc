@@ -16,7 +16,7 @@ setopt INTERACTIVE_COMMENTS # enables interactive comments
 ZSH_SNAP="$HOME/.zsh/.znap"
 # download znap, optionally
 [[ -f "$ZSH_SNAP/src/znap.zsh" ]] ||
-	git clone --depth 1 -- 'https://github.com/marlonrichert/zsh-snap.git' "$ZSH_SNAP/src"
+    git clone --depth 1 -- 'https://github.com/marlonrichert/zsh-snap.git' "$ZSH_SNAP/src"
 # set znap repo directory
 zstyle ':znap:*' repos-dir "$ZSH_SNAP/repos"
 # source znap
@@ -37,7 +37,7 @@ znap fpath _rtx 'rtx completion zsh'
 . "$HOME/.zsh/.anf.zsh"
 
 # environment variables and paths
-. "$HOME/.zsh/.env.sh"
+. "$HOME/.zsh/.env.bash"
 
 znap eval starship 'starship init zsh --print-full-init'
 fastfetch

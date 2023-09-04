@@ -1,25 +1,27 @@
-# $HOME/.zprofile
+# $HOME/.zsh/.zlogin
 
 # Import the default profile
 if [ -f "/etc/profile" ]; then
-	# shellcheck disable=SC1091
-	. "/etc/profile"
+    # shellcheck disable=SC1091
+    . "/etc/profile"
 fi
 
 # Append "$1" to $PATH when not already in.
 append_path() {
-	case ":$PATH:" in
-	*:"$1":*) ;;
-	*)
-		export PATH="${PATH:+$PATH:}$1"
-		;;
-	esac
+    if [ -z "$1" ]; then
+        return
+    fi
+    case ":$PATH:" in
+    *:"$1":*) ;;
+    *)
+        export PATH="${PATH:+$PATH:}$1"
+        ;;
+    esac
 }
 
 # user-paths
 append_path "$HOME/.local/bin"
 append_path "$HOME/.local/share/rtx/shims"
-append_path "$HOME/.local/share/cmdline-tools/bin"
 
 eval "$(/usr/bin/rtx activate zsh)"
 

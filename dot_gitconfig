@@ -7,7 +7,7 @@
 [credential "https://dev.azure.com"]
     useHttpPath = true
 [credential "https://gitea.com"]
-	provider = generic
+    provider = generic
 [delta]
     side-by-side = true
     line-numbers = true
@@ -16,14 +16,14 @@
 [diff]
     colorMoved = default
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [interactive]
     diffFilter = delta --color-only
 [maintenance]
-	repo = /home/jcube/.znap/repos/zsh-users/zsh-autosuggestions
-	repo = /home/jcube/.znap/repos/zsh-users/zsh-syntax-highlighting
-	# theme
-	repo = /home/jcube/.znap/repos/rafaelmardojai/firefox-gnome-theme
+    repo = /home/jcube/.znap/repos/zsh-users/zsh-autosuggestions
+    repo = /home/jcube/.znap/repos/zsh-users/zsh-syntax-highlighting
+    # theme
+    repo = /home/jcube/.znap/repos/rafaelmardojai/firefox-gnome-theme
 [man]
     viewer = tldr
 [man "tldr"]
@@ -31,4 +31,4 @@
 [merge]
     conflictstyle = diff3
 [user]
-	name = Jovial Joe Jayarson
+    name = Jovial Joe Jayarson

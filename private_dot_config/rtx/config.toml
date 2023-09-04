@@ -1,6 +1,6 @@
 [tools]
 bin = "latest"
-pipx = "latest"
-shfmt = "latest"
 neovim = "latest"
+pipx = "latest"
 shellcheck = "latest"
+shfmt = "latest"
