@@ -24,5 +24,5 @@ append_path "$HOME/.local/bin"
 append_path "$HOME/.local/share/rtx/shims"
 
 eval "$(/usr/bin/rtx activate zsh)"
-
-unset -f append_path
+#export JAVA_HOME="$HOME/.local/share/rtx/installs/java/openjdk-20"
+unset append_path

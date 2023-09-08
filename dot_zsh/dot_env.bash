@@ -3,7 +3,7 @@
 # Environment Variables & Paths
 
 # generic
-export CHROOT="$HOME/.chroot"
+export CHROOT="$HOME/.local/share/chroot"
 export EDITOR=micro
 export GCM_CREDENTIAL_STORE=secretservice
 
