@@ -21,6 +21,7 @@ append_path() {
 
 # user-paths
 append_path "$HOME/.local/bin"
+append_path "$HOME/.local/bin/dart-sdk/bin"
 append_path "$HOME/.local/share/rtx/shims"
 
 eval "$(/usr/bin/rtx activate zsh)"

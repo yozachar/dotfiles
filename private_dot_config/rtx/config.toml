@@ -4,3 +4,6 @@ neovim = "latest"
 pipx = "latest"
 shellcheck = "latest"
 shfmt = "latest"
+
+[settings]
+experimental = true

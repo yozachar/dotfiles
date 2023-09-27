@@ -49,6 +49,7 @@ remove_path() {
 
 #append_path "$PNPM_HOME"
 #append_path "$HOME/.local/bin"
+#append_path "$HOME/.local/bin/dart-sdk/bin"
 remove_path "$HOME/.local/share/rtx/shims"
 
 unset append_path remove_path
