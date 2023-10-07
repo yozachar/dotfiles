@@ -39,6 +39,9 @@ znap fpath _rtx 'rtx completion zsh'
 # environment variables and paths
 . "$HOME/.zsh/.env.bash"
 
+# haskell
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
+
 znap eval starship 'starship init zsh --print-full-init'
 fastfetch
 znap prompt
