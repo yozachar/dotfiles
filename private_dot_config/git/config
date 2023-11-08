@@ -2,7 +2,7 @@
     editor = micro
     pager = delta
 [credential]
-    helper =
+    helper = 
     helper = /usr/bin/git-credential-manager
 [credential "https://dev.azure.com"]
     useHttpPath = true

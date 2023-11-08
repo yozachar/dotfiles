@@ -27,6 +27,7 @@ znap source zsh-users/zsh-syntax-highlighting
 # znap eval
 znap eval pipx-completions 'register-python-argcomplete pipx'
 znap eval rtx 'rtx activate zsh'
+znap eval broot 'broot --print-shell-function zsh'
 # znap completions
 #znap fpath _rustup 'rustup completions zsh'
 #znap fpath _cargo 'rustup completions zsh cargo'
@@ -43,5 +44,6 @@ znap fpath _rtx 'rtx completion zsh'
 [ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
 
 znap eval starship 'starship init zsh --print-full-init'
+printf '\n'
 fastfetch
 znap prompt

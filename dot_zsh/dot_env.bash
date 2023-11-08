@@ -6,6 +6,9 @@
 export CHROOT="$HOME/.local/share/chroot"
 export EDITOR=micro
 export GCM_CREDENTIAL_STORE=secretservice
+export LESS='-R --use-color -Dd+r$Du+b$'
+export MANPAGER='less -R --use-color -Dd+r -Du+b'
+export MANROFFOPT='-P -c'
 
 # misc tools
 export MEILI_NO_ANALYTICS=true
